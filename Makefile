@@ -2,7 +2,7 @@ include ./Makefile.os
 include ./Makefile.docker
 include ./Makefile.maven
 
-PROJECT_NAME ?= kafka-bridge
+PROJECT_NAME ?= kafka-bridge-${B_ARCH}
 GITHUB_VERSION ?= main
 RELEASE_VERSION ?= latest
 
