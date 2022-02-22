@@ -27,7 +27,7 @@ export DOCKER_REGISTRY="${B_REGISTRY}"
 export DOCKER_TAG="${TAG}"
 export MVN_ARGS=-DskipTests
 export DOCKER_ORG=strimzi
-
+export DOCKER_BUILD_ARGS="${DOCKER_BUILD_ARGS} --build-arg TARGETPLATFORM=${B_OS}/${B_ARCH}"
 
 
 echo "1) Building replicator for $B_PLATFORM/$B_OS/$B_ARCH"
