@@ -1,24 +1,10 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Strimzi HTTP Bridge for Apache Kafka",
-    "description": "The Strimzi HTTP Bridge for Apache Kafka provides a REST API for integrating HTTP based client applications with a Kafka cluster. You can use the API to create and manage consumers and send and receive records over HTTP rather than the native Kafka protocol. ",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "email": "cncf-strimzi-dev@lists.cncf.io",
-      "url": "https://strimzi.io/"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
+    "title": "Strimzi Kafka Bridge API Reference",
+    "description": "The Strimzi Kafka Bridge provides a REST API for integrating HTTP based client applications with a Kafka cluster. You can use the API to create and manage consumers and send and receive records over HTTP rather than the native Kafka protocol. ",
     "version": "0.1.0"
   },
-  "host": "bridge.swagger.io",
-  "basePath": "/",
-  "schemes": [
-    "http"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -248,7 +234,23 @@
           }
         },
         "operationId": "listSubscriptions",
-        "description": "Retrieves a list of the topics to which the consumer is subscribed."
+        "description": "Retrieves a list of the topics to which the consumer is subscribed.",
+        "parameters": [
+          {
+            "name": "groupid",
+            "in": "path",
+            "description": "ID of the consumer group to which the subscribed consumer belongs.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Name of the subscribed consumer.",
+            "required": true,
+            "type": "string"
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -271,6 +273,20 @@
             "schema": {
               "$ref": "#/definitions/Topics"
             }
+          },
+          {
+            "name": "groupid",
+            "in": "path",
+            "description": "ID of the consumer group to which the subscribed consumer belongs.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Name of the consumer to subscribe to topics.",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -337,9 +353,8 @@
               }
             }
           }
-        }
-      },
-      "parameters": [
+        },
+        "parameters": [
         {
           "name": "groupid",
           "in": "path",
@@ -355,6 +370,7 @@
           "type": "string"
         }
       ]
+      }
     },
     "/consumers/{groupid}/instances/{name}/positions": {
       "post": {
@@ -1908,9 +1924,5 @@
       "name": "Producer",
       "description": "Producer operations to send records to a specified topic or topic partition."
     }
-  ],
-  "externalDocs": {
-    "description": "Find out more about the Strimzi HTTP Bridge",
-    "url": "https://strimzi.io/documentation/"
-  }
+  ]
 }

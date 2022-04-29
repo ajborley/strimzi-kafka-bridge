@@ -1,24 +1,10 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Strimzi HTTP Bridge for Apache Kafka",
-        "description": "The Strimzi HTTP Bridge for Apache Kafka provides a REST API for integrating HTTP based client applications with a Kafka cluster. You can use the API to create and manage consumers and send and receive records over HTTP rather than the native Kafka protocol. ",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "email": "cncf-strimzi-dev@lists.cncf.io",
-            "url": "https://strimzi.io/"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
+      "title": "Strimzi Kafka Bridge API Reference",
+      "description": "The Strimzi Kafka Bridge provides a REST API for integrating HTTP based client applications with a Kafka cluster. You can use the API to create and manage consumers and send and receive records over HTTP rather than the native Kafka protocol. ",
         "version": "0.1.0"
     },
-    "servers": [
-        {
-            "url": "http://bridge.swagger.io/"
-        }
-    ],
     "paths": {
         "/consumers/{groupid}": {
             "post": {
@@ -2083,9 +2069,5 @@
             "name": "Producer",
             "description": "Producer operations to send records to a specified topic or topic partition."
         }
-    ],
-    "externalDocs": {
-        "description": "Find out more about the Strimzi HTTP Bridge",
-        "url": "https://strimzi.io/documentation/"
-    }
+    ]
 }
